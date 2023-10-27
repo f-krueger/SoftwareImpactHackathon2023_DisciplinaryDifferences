@@ -6,6 +6,12 @@
 
 [Project slides](https://docs.google.com/presentation/d/13017RbDyiGoYOnzUuk5S4F_uG5ZE-fdi2WCbAi2ItLU/edit?usp=sharing)
 
+This project was part of the Chan Zuckerberg Initiative on "Mapping the Impact of Research Software in Science". In this project, we are interested in studying the following questions:
+
+- What is the distribution of publications mentioning (or not) software across disciplines?
+- How is different software used by researchers across their publications?
+- What is the ‘proximity’ of scientific publications to the use of software? (ongoing)
+
 
 ## Methodology
 
