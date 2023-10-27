@@ -32,6 +32,9 @@ We conduct scientometric analysis of publications mentioning software to match s
 ### Data collection
 Match CZI software mentions and SoftwareKG mentions with OpenAlex publications (DOI, PMCID)
 
+### Software name disambiguation in CZI dataset
+There were software names in the CZI dataset that were not disambiguated. We used fuzzy matching to identify the "similar" software names to merge them before plotting our networks.
+
 ## Findings
 
 ### Top softwares per discipline
@@ -58,7 +61,11 @@ Match CZI software mentions and SoftwareKG mentions with OpenAlex publications (
 
 ## Future work
 
+#### Software dependency per domain
+
 ![future1](images/10k_paper_software_citation_bar.png?raw=true)
+
+#### Software dependency domain comparison
 
 ![future2](images/10k_sample_paper_software_citation_scatter.png?raw=true)
 
