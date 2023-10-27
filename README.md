@@ -10,6 +10,10 @@
 
 ![top softwares per discipline](images/top_software_per_discipline.png?raw=true)
 
+### Software mentions per discipline across time
+
+![software mentions across disciplines across time](images/top_software_across_time.png?raw=true)
+
 ## Methodology
 
 We conduct scientometric analysis of publications mentioning software to match software mentions with papers, authors, and disciplines.
