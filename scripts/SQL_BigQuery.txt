@@ -1,0 +1,42 @@
+-- Test - network analysis of software co-used by disambiguated researchers
+
+-- Create a table to store data about software, papers, and authors.
+CREATE TABLE `insyspo.userdb_hackaton_san_francisco.software_paper_authors` AS (
+  SELECT DISTINCT a.work_id, b.software, c.author_id
+  FROM `insyspo.userdb_hackaton_san_francisco.dois_openalex` as a
+  JOIN `insyspo.userdb_hackaton_san_francisco.comm_disambiguated` as b on a.doi=b.doi
+  JOIN `publicdb_openalex_2023_08_rm.works_authorships` as c on a.work_id=c.work_id
+)
+-- Total rows: 52706727
+
+-- Create a table to count the number of papers for each software-author combination.
+CREATE TABLE `insyspo.userdb_hackaton_san_francisco.software_authors` AS (
+  SELECT DISTINCT software, author_id, COUNT(work_id) as paper_count
+  FROM `insyspo.userdb_hackaton_san_francisco.software_paper_authors`
+  GROUP BY software, author_id
+)
+
+-- Create a table to identify software used by at least 100 authors.
+CREATE TABLE `insyspo.userdb_hackaton_san_francisco.software_100_authors` AS (
+  SELECT software, COUNT(author_id) as author_count
+  FROM `insyspo.userdb_hackaton_san_francisco.software_paper_authors`
+  GROUP BY software
+  HAVING author_count >= 100
+)
+
+-- Create a matrix to analyze co-usage of software by authors.
+CREATE TABLE `insyspo.userdb_hackaton_san_francisco.software_authors_matrix` AS (
+  SELECT a.software as software_1, b.software as software_2, COUNT(DISTINCT a.author_id) as shared_authors
+  FROM `insyspo.userdb_hackaton_san_francisco.software_authors` as a
+  JOIN `insyspo.userdb_hackaton_san_francisco.software_authors` as b on a.author_id=b.author_id
+  JOIN `insyspo.userdb_hackaton_san_francisco.software_100_authors` as x on a.software=x.software
+  JOIN `insyspo.userdb_hackaton_san_francisco.software_100_authors` as y on b.software=y.software
+  WHERE a.software IS NOT NULL AND b.software IS NOT NULL AND a.software > b.software
+  GROUP BY a.software, b.software
+)
+
+-- Select software combinations with more than 5000 shared authors and order by the number of shared authors in descending order.
+SELECT *
+FROM `insyspo.userdb_hackaton_san_francisco.software_authors_matrix`
+WHERE shared_authors > 5000
+ORDER BY shared_authors DESC
