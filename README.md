@@ -1,4 +1,4 @@
-# Project name: Mapping the Impact of Research Software in Science: Exploring Disciplinary Differences in Software Mentions
+# Project name: Exploring Disciplinary Differences in Software Mentions
 
 ![project-banner](images/project-banner.png?raw=true)
 
