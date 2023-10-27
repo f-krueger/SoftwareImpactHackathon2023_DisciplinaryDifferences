@@ -16,6 +16,21 @@
 
 ![software mentions across disciplines across time](images/top_software_across_time.png?raw=true)
 
+### Software mention networks
+
+#### Using the CZI dataset (1.7 million publications)
+
+![software network mentions in CZI dataset](images/network1.png?raw=true)
+
+#### Using the KG dataset
+
+![software network mentions in KG dataset](images/network3.png?raw=true)
+
+#### Software network differences across contrasting disciplines
+
+![software mention networks comparison](images/network4.png?raw=true)
+
+
 ## Methodology
 
 We conduct scientometric analysis of publications mentioning software to match software mentions with papers, authors, and disciplines.
