@@ -8,7 +8,7 @@
 
 ### Top softwares per discipline
 
-![top softwares per discipline](https://github.com/f-krueger/SoftwareImpactHackathon2023_DisciplinaryDifferences/blob/master/images/top_software_per_discipline.png?raw=true)
+![top softwares per discipline](images/top_software_per_discipline.png?raw=true)
 
 ## Methodology
 
