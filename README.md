@@ -73,9 +73,11 @@ There were software names in the CZI dataset that were not disambiguated. We use
 ## Contributers
 
 - Alexy Khrabrov
+- Frank Krüger
 - Fuqi Xu
-- Shahan Ali Memon
-- Rodrigo Costas
 - Huimin Xu
 - Puyu Yang
-- Frank Krüger
+- Rodrigo Costas
+- Shahan Ali Memon
+
+
