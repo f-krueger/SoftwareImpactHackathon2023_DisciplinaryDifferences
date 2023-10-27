@@ -1,4 +1,4 @@
--- Test - network analysis of software co-used by disambiguated researchers
+-- Network analysis of software co-used by disambiguated researchers
 
 -- Create a table to store data about software, papers, and authors.
 CREATE TABLE `insyspo.userdb_hackaton_san_francisco.software_paper_authors` AS (
@@ -40,3 +40,47 @@ SELECT *
 FROM `insyspo.userdb_hackaton_san_francisco.software_authors_matrix`
 WHERE shared_authors > 5000
 ORDER BY shared_authors DESC
+
+-----------------------------
+-- Combine the SoftwareKG dataset with OpenAlex.
+
+-- Create a table to store unique PMC IDs from the source table.
+CREATE TABLE `insyspo.userdb_hackaton_san_francisco.df_pmcid` AS (
+  SELECT DISTINCT id
+  FROM `insyspo.userdb_hackaton_san_francisco.df_article_unique_software_count`
+);
+
+-- Count the number of unique PMC IDs in the new table.
+SELECT count(*)
+FROM `insyspo.userdb_hackaton_san_francisco.df_pmcid`;
+-- Result: 3,036,913
+
+-- Count the number of PMC IDs that match with OpenAlex PMC IDs after formatting.
+SELECT count(distinct a.id)
+FROM `insyspo.userdb_hackaton_san_francisco.df_pmcid` as a
+join `insyspo.publicdb_openalex_2023_08_rm.works_ids` as b on replace(a.id,'PMC','')=replace(b.pmcid, 'https://www.ncbi.nlm.nih.gov/pmc/articles/', '');
+-- Result: 2,943,952
+
+-- Create a table to store OpenAlex PMC IDs and corresponding work IDs.
+CREATE TABLE `insyspo.userdb_hackaton_san_francisco.df_pmcid_openalex` AS (
+  SELECT DISTINCT b.openalex as work_id, a.id, b.pmcid as pmcid_alex
+  FROM `insyspo.userdb_hackaton_san_francisco.df_pmcid` as a
+  join `insyspo.publicdb_openalex_2023_08_rm.works_ids` as b on replace(a.id,'PMC','')=replace(b.pmcid, 'https://www.ncbi.nlm.nih.gov/pmc/articles/', '')
+);
+
+-- Create a table to store OpenAlex concepts associated with PMC IDs.
+CREATE TABLE `insyspo.userdb_hackaton_san_francisco.df_pmcid_openalex_concepts` AS (
+select a.*, b.concept_id, b.score, c.display_name, level
+from `insyspo.userdb_hackaton_san_francisco.df_pmcid_openalex` as a
+join `insyspo.publicdb_openalex_2023_08_rm.works_concepts` as b on a.work_id=b.work_id
+join `insyspo.publicdb_openalex_2023_08_rm.concepts` as c on b.concept_id=c.id
+);
+-- Result: 43,252,461
+
+-- Create a table to store publication date information for PMC IDs and OpenAlex concepts.
+CREATE TABLE `insyspo.userdb_hackaton_san_francisco.df_pmcid_openalex_concepts_pubdate` AS (
+select a.*, b.publication_year, b.publication_date
+from `insyspo.userdb_hackaton_san_francisco.df_pmcid_openalex_concepts` as a
+join `insyspo.publicdb_openalex_2023_08_rm.works` as b on a.work_id=b.id
+)
+
