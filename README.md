@@ -2,7 +2,13 @@
 
 [Project description](https://docs.google.com/document/d/1TTeVDYmjcoCHfSzhFvliGrLMQyEB2yHYSQcjMf-OeY4/edit#heading=h.mfizjlrp1stl)
 
-[Project slides]()
+[Project slides](https://docs.google.com/presentation/d/13017RbDyiGoYOnzUuk5S4F_uG5ZE-fdi2WCbAi2ItLU/edit?usp=sharing)
+
+## Findings
+
+### Top softwares per discipline
+
+![top softwares per discipline](https://github.com/f-krueger/SoftwareImpactHackathon2023_DisciplinaryDifferences/blob/master/images/top_software_per_discipline.png?raw=true)
 
 ## Methodology
 
