@@ -22,3 +22,13 @@ We conduct scientometric analysis of publications mentioning software to match s
 
 ### Data collection
 Match CZI software mentions and SoftwareKG mentions with OpenAlex publications (DOI, PMCID)
+
+## Contributers
+
+- Alexy Khrabrov
+- Fuqi Xu
+- Shahan Ali Memon
+- Rodrigo Costas
+- Huimin Xu
+- Puyu Yang
+- Frank Krüger
