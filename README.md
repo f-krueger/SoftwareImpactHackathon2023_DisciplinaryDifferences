@@ -1,5 +1,7 @@
 # Project name: Mapping the Impact of Research Software in Science: Exploring Disciplinary Differences in Software Mentions
 
+![project-banner](images/project-banner.png?raw=true)
+
 [Project description](https://docs.google.com/document/d/1TTeVDYmjcoCHfSzhFvliGrLMQyEB2yHYSQcjMf-OeY4/edit#heading=h.mfizjlrp1stl)
 
 [Project slides](https://docs.google.com/presentation/d/13017RbDyiGoYOnzUuk5S4F_uG5ZE-fdi2WCbAi2ItLU/edit?usp=sharing)
