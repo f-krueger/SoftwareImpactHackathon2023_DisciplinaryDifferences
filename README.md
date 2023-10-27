@@ -6,6 +6,26 @@
 
 [Project slides](https://docs.google.com/presentation/d/13017RbDyiGoYOnzUuk5S4F_uG5ZE-fdi2WCbAi2ItLU/edit?usp=sharing)
 
+
+## Methodology
+
+We conduct scientometric analysis of publications mentioning software to match software mentions with papers, authors, and disciplines.
+
+### Datasets
+- CZI mentions dataset (1.7 million PubMed IDs)
+- [OpenAlex] (https://openalex.org/)
+- [SoftwareKG] (https://zenodo.org/records/3715147)
+
+### Software/Tools
+- Google BigQuery (InSySPo project - Brazil)
+- Databricks
+- VOSviewer
+- R
+- Python
+
+### Data collection
+Match CZI software mentions and SoftwareKG mentions with OpenAlex publications (DOI, PMCID)
+
 ## Findings
 
 ### Top softwares per discipline
@@ -36,25 +56,6 @@
 
 ![future2](images/10k_sample_paper_software_citation_scatter.png?raw=true)
 
-
-## Methodology
-
-We conduct scientometric analysis of publications mentioning software to match software mentions with papers, authors, and disciplines.
-
-### Datasets
-- CZI mentions dataset (1.7 million PubMed IDs)
-- [OpenAlex] (https://openalex.org/)
-- [SoftwareKG] (https://zenodo.org/records/3715147)
-
-### Software/Tools
-- Google BigQuery (InSySPo project - Brazil)
-- Databricks
-- VOSviewer
-- R
-- Python
-
-### Data collection
-Match CZI software mentions and SoftwareKG mentions with OpenAlex publications (DOI, PMCID)
 
 ## Contributers
 
