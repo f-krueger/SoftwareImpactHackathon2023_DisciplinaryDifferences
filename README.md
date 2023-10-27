@@ -30,6 +30,12 @@
 
 ![software mention networks comparison](images/network4.png?raw=true)
 
+## Future work
+
+![future1](images/10k_paper_software_citation_bar.png?raw=true)
+
+![future2](images/10k_sample_paper_software_citation_scatter.png?raw=true)
+
 
 ## Methodology
 
